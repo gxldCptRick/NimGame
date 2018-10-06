@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nim.UI.ViewModels
 {
-    class PileData
+    public class PileData
     {
     }
 }
