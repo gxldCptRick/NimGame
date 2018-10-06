@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Nim.Lib.Enums
 {
+    /// <summary>
+    /// A Representation of the Game Difficulty settings.
+    /// </summary>
     public enum GameDifficulty
     {
         Easy = 1,
