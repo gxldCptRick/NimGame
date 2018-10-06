@@ -8,15 +8,14 @@ namespace Nim.UI.ViewModels
 {
     public class PileData
     {
-
-        public PileData(string name, int originalAmount)
+        public PileData(string pileID, int originalAmount)
         {
-            this.pileID = pileID;
-            this.amountLeft = originalAmount;
+            this.PileID = pileID;
+            this.AmountLeft = originalAmount;
         }
 
-        public string pileID { get; set; }
-        public int amountTaken { get; set; }
-        public int amountLeft { get; set; }
+        public string PileID { get; set; }
+        public int AmountTaken { get; set; }
+        public int AmountLeft { get; set; }
     }
 }
