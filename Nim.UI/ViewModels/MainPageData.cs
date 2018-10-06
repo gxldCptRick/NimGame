@@ -12,14 +12,14 @@ namespace Nim.UI.ViewModels
         /// <summary>
         /// The string for the first player's name
         /// </summary>
-        public string p1Name { get; set; }
+        public string P1Name { get; set; }
         /// <summary>
         /// The string for the second player's name
         /// </summary>
-        public string p2Name { get; set; }
+        public string P2Name { get; set; }
         /// <summary>
         /// The controller for the entire game.
         /// </summary>
-        public NimController gameController { get; set; }
+        public NimController GameController { get; set; }
     }
 }
