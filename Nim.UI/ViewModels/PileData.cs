@@ -8,5 +8,8 @@ namespace Nim.UI.ViewModels
 {
     class PileData
     {
+        public string pileID { get; set; }
+        public int amountTaken { get; set; }
+        public int amountLeft { get; set; }
     }
 }
