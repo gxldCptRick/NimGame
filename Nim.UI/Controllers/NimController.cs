@@ -78,11 +78,24 @@ namespace Nim.UI.Controllers
         /// </summary>
         public void ProcessTurn()
         {
-
+            foreach (var pile in Piles)
+            {
+                this.game.TakeFromPile(pile.PileID, pile.AmountTaken);
+            }
+            ResetPiles();
+            if (Type == GameType.OnePlayer)
+            {
+                this.SwitchTurn();
+                this.ProcessBotTurn();
+            }
+            else
+            {
+                this.SwitchTurn();
+            }
         }
 
         /// <summary>
-        /// Process the bots desired move and update the game state.
+        /// Process the bots desired move and updates the game state.
         /// </summary>
         private void ProcessBotTurn()
         {
@@ -99,6 +112,8 @@ namespace Nim.UI.Controllers
                     this.game.TakeFromPile(pileSelecting, amountTaking);
                 }
             } while (!isValidMove);
+
+            this.SwitchTurn();
         }
 
         /// <summary>
@@ -119,8 +134,8 @@ namespace Nim.UI.Controllers
             {
                 foreach (var pile in Piles)
                 {
-                    pile.amountTaken = 0;
-                    pile.amountLeft = this.game.GetPileSize(pile.pileID);
+                    pile.AmountTaken = 0;
+                    pile.AmountLeft = this.game.GetPileSize(pile.PileID);
                 }
             }
             

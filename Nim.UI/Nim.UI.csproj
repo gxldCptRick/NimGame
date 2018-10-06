@@ -67,9 +67,6 @@
     <Compile Include="Views\HalpPage.xaml.cs">
       <DependentUpon>HalpPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainMenu.xaml.cs">
-      <DependentUpon>MainMenu.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
@@ -100,10 +97,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HalpPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
