@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nim.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="600" Width="550">
+    <StackPanel>
+        <Menu Height="22">
+            <MenuItem Header="_Menu" FontFamily="Comic Sans MS" FontSize="15">
+                <MenuItem Header="_Options" Click="Options_Click"/>
+                <MenuItem Header="_Halp" Click="Halp_Click"/>
+                <MenuItem Header="_Main" Click="Main_Click"/>
+                <MenuItem Header="_Close" Click="Close_Click"/>
+            </MenuItem>
+        </Menu>
+    </StackPanel>
 </Window>

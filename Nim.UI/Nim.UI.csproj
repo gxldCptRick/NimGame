@@ -58,9 +58,6 @@
     <Compile Include="Controllers\NimController.cs" />
     <Compile Include="ViewModels\MainPageData.cs" />
     <Compile Include="ViewModels\PileData.cs" />
-    <Compile Include="Views\MainMenu.xaml.cs">
-      <DependentUpon>MainMenu.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,10 +70,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\MainMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -105,11 +98,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\UserControls\" />
     <ProjectReference Include="..\Nim\Nim.Lib.csproj">
       <Project>{c8ef81c8-20eb-4b76-abf3-6ddf25ac1416}</Project>
       <Name>Nim.Lib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

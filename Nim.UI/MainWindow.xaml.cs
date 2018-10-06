@@ -24,5 +24,22 @@ namespace Nim.UI
         {
             InitializeComponent();
         }
+        private void Options_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Options");
+        }
+        private void Halp_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Halp");
+        }
+        private void Main_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Main");
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
