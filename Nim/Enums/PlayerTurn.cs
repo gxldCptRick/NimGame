@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nim.Lib.Enums
 {
-    enum PlayerTurn
+    public enum PlayerTurn
     {
         PlayerOne = 1,
         PlayerTwo = 2

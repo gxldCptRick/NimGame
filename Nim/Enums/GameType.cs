@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nim.Lib.Enums
 {
-    enum GameType
+    public enum GameType
     {
         OnePlayer = 1,
         TwoPlayer = 2

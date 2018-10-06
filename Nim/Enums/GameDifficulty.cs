@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Nim.Lib.Enums
 {
-    enum GameDifficulty
+    public enum GameDifficulty
     {
         Easy = 1,
         Medium = 2,
