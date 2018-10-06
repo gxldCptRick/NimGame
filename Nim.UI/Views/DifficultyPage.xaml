@@ -5,10 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Nim.UI.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="600"
+
       Title="Difficulty">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width=".2*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <!--Put the NameEntryControl at the top of the stack panel-->
+            <RadioButton Name="rdoEasy" Content="Easy" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10"/>
+            <RadioButton Name="rdoMedium" Content="Medium" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10"/>
+            <RadioButton Name="rdoHard" Content="Hard" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10"/>
+        </StackPanel>
+        <Button Content="_Start" Grid.Column="2" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Purple" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>
