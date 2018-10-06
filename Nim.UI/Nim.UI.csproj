@@ -106,6 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\UserControls\" />
+    <ProjectReference Include="..\Nim\Nim.Lib.csproj">
+      <Project>{c8ef81c8-20eb-4b76-abf3-6ddf25ac1416}</Project>
+      <Name>Nim.Lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
