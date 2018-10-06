@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Nim.UI.Views.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="100" d:DesignWidth="200">
     <Grid>
-            
+        <Label Content="Enter Name:" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" Foreground="Yellow"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="55,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS" Foreground="Yellow"/>
+
     </Grid>
 </UserControl>
