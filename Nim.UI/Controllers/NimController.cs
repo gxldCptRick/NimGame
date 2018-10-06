@@ -28,12 +28,25 @@ namespace Nim.UI.Controllers
         /// this is a list of data represention of the piles in the nim game.
         /// </summary>
         public List<PileData> Piles { get; set; }
+        
         /// <summary>
         /// this is the marker to determine whose turn it currently is.
         /// </summary>
         public PlayerTurn CurrentTurn { get; set; }
+        
+        /// <summary>
+        /// The currently selected Game Mode. 
+        /// </summary>
         public GameType Type { get; set; }
+
+        /// <summary>
+        /// the currently selected Difficulty.
+        /// </summary>
         public GameDifficulty Difficulty { get; set; }
+
+        /// <summary>
+        /// the current Game of Nim being played
+        /// </summary>
         private NimGame game;
 
         public NimController()
@@ -56,22 +69,84 @@ namespace Nim.UI.Controllers
             {
                 game = new NimGame(Difficulty == 0 ? GameDifficulty.Easy: Difficulty);
             }
+
+            ResetPiles();
         }
 
+        /// <summary>
+        /// Processes the changes made to the GamePile Collection and update the game state.
+        /// </summary>
         public void ProcessTurn()
         {
-
+            foreach (var pile in Piles)
+            {
+                this.game.TakeFromPile(pile.PileID, pile.AmountTaken);
+            }
+            ResetPiles();
+            if (Type == GameType.OnePlayer)
+            {
+                this.SwitchTurn();
+                this.ProcessBotTurn();
+            }
+            else
+            {
+                this.SwitchTurn();
+            }
         }
 
+        /// <summary>
+        /// Process the bots desired move and updates the game state.
+        /// </summary>
         private void ProcessBotTurn()
         {
+            var pileNames = this.game.GetPileIDs();
+            bool isValidMove = false;
+            do
+            {
+                var pileSelecting = pileNames[rnJesus.Next(0, pileNames.Length)];
+                var amountInPile = this.game.GetPileSize(pileSelecting);
+                isValidMove = amountInPile == 0;
+                if (isValidMove)
+                {
+                    var amountTaking = rnJesus.Next(1, amountInPile + 1);
+                    this.game.TakeFromPile(pileSelecting, amountTaking);
+                }
+            } while (!isValidMove);
+
+            this.SwitchTurn();
         }
 
+        /// <summary>
+        /// Resets the pile to what the game state currently is.
+        /// </summary>
         private void ResetPiles()
         {
+            if (this.game.Difficulty != this.Difficulty)
+            {
+                var pileNames = this.game.GetPileIDs();
+                this.Piles.Clear();
+                foreach (var name in pileNames)
+                {
+                    Piles.Add(new PileData(name, this.game.GetPileSize(name)));
+                }
+            }
+            else
+            {
+                foreach (var pile in Piles)
+                {
+                    pile.AmountTaken = 0;
+                    pile.AmountLeft = this.game.GetPileSize(pile.PileID);
+                }
+            }
+            
         }
+
+        /// <summary>
+        /// Switches the turn on the current turn property.
+        /// </summary>
         private void SwitchTurn()
         {
+            this.CurrentTurn = this.CurrentTurn == PlayerTurn.PlayerOne ? PlayerTurn.PlayerTwo : PlayerTurn.PlayerOne;
         }
     }
 }
