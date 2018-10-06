@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:Nim.UI"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="550">
-    <StackPanel>
-        <Menu Height="22">
-            <MenuItem Header="_Menu" FontFamily="Comic Sans MS" FontSize="15">
-                <MenuItem Header="_Options" Click="Options_Click"/>
-                <MenuItem Header="_Halp" Click="Halp_Click"/>
-                <MenuItem Header="_Main" Click="Main_Click"/>
-                <MenuItem Header="_Close" Click="Close_Click"/>
+    <StackPanel Background="Purple">
+        <Menu Height="22" Background="Purple">
+            <MenuItem Header="_Menu" FontFamily="Comic Sans MS" FontSize="15" Foreground="Yellow">
+                <MenuItem Header="_Options" Background="Purple" Click="Options_Click"/>
+                <MenuItem Header="_Halp" Background="Purple" Click="Halp_Click"/>
+                <MenuItem Header="_Main" Background="Purple" Click="Main_Click"/>
+                <MenuItem Header="_Close" Background="Purple" Click="Close_Click"/>
             </MenuItem>
         </Menu>
     </StackPanel>
