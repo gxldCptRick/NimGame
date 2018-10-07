@@ -47,16 +47,35 @@ namespace Nim.UI.Views
 
         private void restartBtn_Click(object sender, RoutedEventArgs e)
         {
-            gameArea.SelectedIndex = -1;
-            gameArea.Focusable = true;
-            foreach (var item in gameArea.Items)
-            { 
-                ((PileData)item).IsEnabled = true;
-            }
-            canUpdateGameArea = true;
+            resetStuff();
 
             MainPageData dc = (MainPageData)this.DataContext;
             dc.GameController.ResetGame();
+        }
+
+        private void endBtn_Click(object sender, RoutedEventArgs e)
+        {
+            resetStuff();
+            MainPageData dc = (MainPageData)this.DataContext;
+            dc.GameController.ProcessTurn();
+        }
+
+        private void resetStuff()
+        {
+            gameArea.SelectedIndex = -1;
+            gameArea.Focusable = true;
+            foreach (var item in gameArea.Items)
+            {
+                if (((PileData)item).AmountLeft==0)
+                {
+                    ((PileData)item).IsEnabled = false;
+                }
+                else
+                {
+                    ((PileData)item).IsEnabled = true;
+                }
+            }
+            canUpdateGameArea = true;
         }
     }
 }

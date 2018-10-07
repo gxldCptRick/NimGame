@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <UniformGrid Rows="1">
             <Label Background="Red"  Content="{Binding Path=P1Name}"/>
-            <Button Content="End Turn" Margin="10"/>
+            <Button Content="End Turn" Margin="10" Name="endBtn" Click="endBtn_Click"/>
             <Label Background="blue" Content="{Binding Path=P2Name}"/>
         </UniformGrid>
         <ListView Grid.Row="1" Background="Transparent" Name="gameArea" DataContext="{Binding  Path=GameController}" 
