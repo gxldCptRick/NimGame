@@ -24,5 +24,10 @@ namespace Nim.UI.Views
         {
             InitializeComponent();
         }
+
+        private void gameArea_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
