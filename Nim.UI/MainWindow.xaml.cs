@@ -21,21 +21,32 @@ namespace Nim.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string toPage = "";
+
         public MainWindow()
         {
             InitializeComponent();
         }
         private void Options_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Options");
+            //MessageBox.Show("Options");
         }
         private void Halp_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Halp");
+            //MessageBox.Show("Halp");
+            Halp halp = new Halp();
+            halp.CheckClick += value =>
+            halp.DataContext = this.DataContext;
+            this.frameToHoldThePages.Navigate(halp);
+            
         }
         private void Main_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Main");
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.CheckClick += value => toPage = value;
+            MessageBox.Show(toPage);
+            mainMenu.DataContext = this.DataContext;
+            this.frameToHoldThePages.Navigate(mainMenu);
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

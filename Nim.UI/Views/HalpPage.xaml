@@ -8,15 +8,10 @@
       d:DesignHeight="600" d:DesignWidth="550"
       Title="Halp">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        
-        <StackPanel Grid.Column="1">
-            <Button Content="How To Play" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" Margin="5, 100"/>
-            <Button Content="Developer Information" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" Margin="5, 0"/>
+
+        <StackPanel>
+            <Button Content="How To Play" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" Margin="5, 100" FontSize="32"/>
+            <Button Content="Developer Information" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" Margin="5, 0" FontSize="32"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -27,10 +27,10 @@
         </UniformGrid>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <!--Put the NameEntryControl at the top of the stack panel-->
-            <RadioButton Name="rdoEasy" Content="Easy" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10"/>
-            <RadioButton Name="rdoMedium" Content="Medium" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10"/>
-            <RadioButton Name="rdoHard" Content="Hard" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10"/>
+            <RadioButton Name="rdoEasy" Content="Easy" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10" FontSize="32"/>
+            <RadioButton Name="rdoMedium" Content="Medium" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10" FontSize="32"/>
+            <RadioButton Name="rdoHard" Content="Hard" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10" FontSize="32"/>
         </StackPanel>
-        <Button Grid.Row="2" Content="_Start" Grid.Column="2" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Purple" VerticalAlignment="Bottom"/>
+        <Button Grid.Row="2" Content="_Start" Grid.Column="2" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Purple" VerticalAlignment="Bottom" FontSize="32"/>
     </Grid>
 </Page>

@@ -20,9 +20,31 @@ namespace Nim.UI.Views
     /// </summary>
     public partial class MainMenu : Page
     {
+        public event Action<string> CheckClick;
+
         public MainMenu()
         {
             InitializeComponent();
+        }
+
+        private void SinglePlayerClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void TwoPlayerClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void HalpClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SettingsClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
