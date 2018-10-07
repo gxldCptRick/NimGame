@@ -24,7 +24,7 @@
             <Label Background="blue" Content="{Binding Path=P2Name}"/>
         </UniformGrid>
         <ListView Grid.Row="1" Background="Transparent" Name="gameArea" DataContext="{Binding  Path=GameController}" 
-                  ItemsSource="{Binding Path=Piles}">
+                  ItemsSource="{Binding Path=Piles}" SelectionChanged="gameArea_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <userControls:PileControl/>

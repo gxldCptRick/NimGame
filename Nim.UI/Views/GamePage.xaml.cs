@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Nim.UI.ViewModels;
+using Nim.UI.Views.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +29,15 @@ namespace Nim.UI.Views
 
         private void gameArea_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            MessageBox.Show("hi");
+            gameArea.Focusable = false;
+            foreach (var item in gameArea.Items)
+            {
+                if(gameArea.SelectedItem != item)
+                {
+                    ((PileData)item).IsEnabled = false;
+                }
+            }
         }
     }
 }
