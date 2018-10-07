@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\NimController.cs" />
+    <Compile Include="Converters\BoolToColorConverter.cs" />
     <Compile Include="Converters\IntToImagesConverter.cs" />
     <Compile Include="ViewModels\MainPageData.cs" />
     <Compile Include="ViewModels\PileData.cs" />
