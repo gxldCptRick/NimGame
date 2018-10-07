@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Nim.UI.Views.UserControls
 {
@@ -20,9 +10,20 @@ namespace Nim.UI.Views.UserControls
     /// </summary>
     public partial class NameEntryControl : UserControl
     {
+        public string PName
+        {
+            get { return (string)GetValue(PNameProperty); }
+            set { SetValue(PNameProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PName.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PNameProperty =
+            DependencyProperty.Register("PName", typeof(string), typeof(NameEntryControl), new PropertyMetadata(""));
+
         public NameEntryControl()
         {
             InitializeComponent();
+            DataContext = this;
         }
     }
 }

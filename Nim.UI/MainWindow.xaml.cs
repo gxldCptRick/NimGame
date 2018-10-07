@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nim.UI.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,6 +41,13 @@ namespace Nim.UI
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var page =  new GamePage();
+            page.DataContext = this.DataContext;
+            this.frameToHoldThePages.Navigate(page);
         }
     }
 }

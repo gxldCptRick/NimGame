@@ -1,24 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Nim.UI.Controllers;
+﻿using Nim.UI.Controllers;
 
 namespace Nim.UI.ViewModels
 {
-    class MainPageData
+    internal class MainPageData : ViewModelBase
     {
+        private string _p1Name;
+        private string _p2Name;
+
         /// <summary>
         /// The string for the first player's name
         /// </summary>
-        public string P1Name { get; set; }
-        
+        public string P1Name
+        {
+            get => _p1Name; set
+            {
+                _p1Name = value;
+                PropertyChanging();
+            }
+        }
+
         /// <summary>
         /// The string for the second player's name
         /// </summary>
-        public string P2Name { get; set; }
-        
+        public string P2Name
+        {
+            get => _p2Name; set
+            {
+                _p2Name = value;
+                PropertyChanging();
+            }
+        }
+
         /// <summary>
         /// The controller for the entire game.
         /// </summary>
@@ -29,6 +41,8 @@ namespace Nim.UI.ViewModels
         /// </summary>
         public MainPageData()
         {
+            P1Name = "Player One";
+            P2Name = "Player Two";
             GameController = new NimController();
         }
     }

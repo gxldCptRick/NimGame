@@ -1,17 +1,9 @@
-﻿using System;
+﻿using Nim.UI.Converters;
+using Nim.UI.ViewModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Nim.UI.Views.UserControls
 {
@@ -20,9 +12,43 @@ namespace Nim.UI.Views.UserControls
     /// </summary>
     public partial class PileControl : UserControl
     {
+        private static readonly IntToImagesConverter converter;
+
+        static PileControl()
+        {
+            converter = new IntToImagesConverter();
+        }
+
         public PileControl()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ResetSpawnGrid();
+            (DataContext as PileData).PropertyChanged += AmountLeftHandler;
+        }
+
+        private void ResetSpawnGrid()
+        {
+            spawnGrid.Children.Clear();
+            var value = (DataContext as PileData).AmountLeft;
+            var images = converter.Convert(value, null, null, null) as List<Image>;
+            foreach (var image in images)
+            {
+                image.MouseDown += (s, e) =>
+                {
+                    (DataContext as PileData).AmountTaken++;
+                    (DataContext as PileData).AmountLeft--;
+                };
+                spawnGrid.Children.Add(image);
+            }
+        }
+
+        private void AmountLeftHandler(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "AmountLeft") ResetSpawnGrid();
         }
     }
 }

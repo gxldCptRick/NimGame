@@ -4,17 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Nim.UI.Views.UserControls"
+             xmlns:converters="clr-namespace:Nim.UI.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="75" d:DesignWidth="550">
+             d:DesignHeight="75" d:DesignWidth="550"
+             Loaded="UserControl_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".2*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width=".6*"/>
             <ColumnDefinition Width=".2*"/>
         </Grid.ColumnDefinitions>
-
-        <Label Grid.Column="0" Content="PileID" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="5, 20"/>
-        <UniformGrid Grid.Column="1"></UniformGrid>
-        <Button Grid.Column="2" Content="Take" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Purple"/>
+        <Label Grid.Column="0" Content="{Binding Path=PileID}" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="5, 20"/>
+        <UniformGrid Grid.Column="1" Name="spawnGrid" />
+        <Button Grid.Column="2" Content="Take" 
+                FontFamily="Comic Sans MS" 
+                Foreground="Yellow" 
+                Background="Plum"/>
     </Grid>
 </UserControl>

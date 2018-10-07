@@ -3,13 +3,10 @@ using Nim.Lib.Models;
 using Nim.UI.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nim.UI.Controllers
 {
-    public class NimController
+    public class NimController : ViewModelBase
     {
         /// <summary>
         /// the random number generator to be used when calculating the boss moves. 
@@ -27,31 +24,73 @@ namespace Nim.UI.Controllers
         /// <summary>
         /// this is a list of data represention of the piles in the nim game.
         /// </summary>
-        public List<PileData> Piles { get; set; }
-        
+        public List<PileData> Piles
+        {
+            get => _piles; set
+            {
+                _piles = value;
+                PropertyChanging();
+            }
+        }
+
         /// <summary>
         /// this is the marker to determine whose turn it currently is.
         /// </summary>
-        public PlayerTurn CurrentTurn { get; set; }
-        
+        public PlayerTurn CurrentTurn
+        {
+            get => _currentTurn; set
+            {
+                _currentTurn = value;
+                PropertyChanging();
+            }
+        }
+
         /// <summary>
         /// The currently selected Game Mode. 
         /// </summary>
-        public GameType Type { get; set; }
+        public GameType Type
+        {
+            get => _type; set
+            {
+                _type = value;
+                PropertyChanging();
+            }
+        }
 
         /// <summary>
         /// the currently selected Difficulty.
         /// </summary>
-        public GameDifficulty Difficulty { get; set; }
+        public GameDifficulty Difficulty
+        {
+            get => _difficulty; set
+            {
+                _difficulty = value;
+                PropertyChanging();
+            }
+        }
+
+        /// <summary>
+        /// signals when the internal nim game object is over.
+        /// </summary>
+        public event EventHandler GameOver;
 
         /// <summary>
         /// the current Game of Nim being played
         /// </summary>
         private NimGame game;
+        private List<PileData> _piles;
+        private PlayerTurn _currentTurn;
+        private GameType _type;
+        private GameDifficulty _difficulty;
 
+        /// <summary>
+        /// Initializes a blank NimController with a default game object of type easy.
+        /// </summary>
         public NimController()
         {
             Piles = new List<PileData>();
+            Difficulty = GameDifficulty.Easy;
+            Type = GameType.OnePlayer;
             ResetGame();
         }
 
@@ -61,13 +100,14 @@ namespace Nim.UI.Controllers
         public void ResetGame()
         {
             CurrentTurn = PlayerTurn.PlayerOne;
-            if (game != null && game.Difficulty == this.Difficulty)
+            if (game != null && game.Difficulty == Difficulty)
             {
                 game.ResetGame();
             }
             else
             {
-                game = new NimGame(Difficulty == 0 ? GameDifficulty.Easy: Difficulty);
+                game = new NimGame(Difficulty);
+                game.GameOver += (s, e) => GameOver?.Invoke(s, e);
             }
 
             ResetPiles();
@@ -80,17 +120,17 @@ namespace Nim.UI.Controllers
         {
             foreach (var pile in Piles)
             {
-                this.game.TakeFromPile(pile.PileID, pile.AmountTaken);
+                game.TakeFromPile(pile.PileID, pile.AmountTaken);
             }
             ResetPiles();
             if (Type == GameType.OnePlayer)
             {
-                this.SwitchTurn();
-                this.ProcessBotTurn();
+                SwitchTurn();
+                ProcessBotTurn();
             }
             else
             {
-                this.SwitchTurn();
+                SwitchTurn();
             }
         }
 
@@ -99,21 +139,21 @@ namespace Nim.UI.Controllers
         /// </summary>
         private void ProcessBotTurn()
         {
-            var pileNames = this.game.GetPileIDs();
+            var pileNames = game.GetPileIDs();
             bool isValidMove = false;
             do
             {
                 var pileSelecting = pileNames[rnJesus.Next(0, pileNames.Length)];
-                var amountInPile = this.game.GetPileSize(pileSelecting);
+                var amountInPile = game.GetPileSize(pileSelecting);
                 isValidMove = amountInPile == 0;
                 if (isValidMove)
                 {
                     var amountTaking = rnJesus.Next(1, amountInPile + 1);
-                    this.game.TakeFromPile(pileSelecting, amountTaking);
+                    game.TakeFromPile(pileSelecting, amountTaking);
                 }
             } while (!isValidMove);
 
-            this.SwitchTurn();
+            SwitchTurn();
         }
 
         /// <summary>
@@ -121,13 +161,13 @@ namespace Nim.UI.Controllers
         /// </summary>
         private void ResetPiles()
         {
-            if (this.game.Difficulty != this.Difficulty)
+            if (game.Difficulty != Difficulty || Piles.Count == 0)
             {
-                var pileNames = this.game.GetPileIDs();
-                this.Piles.Clear();
+                var pileNames = game.GetPileIDs();
+                Piles.Clear();
                 foreach (var name in pileNames)
                 {
-                    Piles.Add(new PileData(name, this.game.GetPileSize(name)));
+                    Piles.Add(new PileData(name, game.GetPileSize(name)));
                 }
             }
             else
@@ -135,10 +175,10 @@ namespace Nim.UI.Controllers
                 foreach (var pile in Piles)
                 {
                     pile.AmountTaken = 0;
-                    pile.AmountLeft = this.game.GetPileSize(pile.PileID);
+                    pile.AmountLeft = game.GetPileSize(pile.PileID);
                 }
             }
-            
+
         }
 
         /// <summary>
@@ -146,7 +186,7 @@ namespace Nim.UI.Controllers
         /// </summary>
         private void SwitchTurn()
         {
-            this.CurrentTurn = this.CurrentTurn == PlayerTurn.PlayerOne ? PlayerTurn.PlayerTwo : PlayerTurn.PlayerOne;
+            CurrentTurn = CurrentTurn == PlayerTurn.PlayerOne ? PlayerTurn.PlayerTwo : PlayerTurn.PlayerOne;
         }
     }
 }

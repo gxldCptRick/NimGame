@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Nim.Lib.Enums;
+using Nim.UI.ViewModels;
 using Nim.UI.Views.UserControls;
 
 namespace Nim.UI.Views
@@ -19,11 +21,19 @@ namespace Nim.UI.Views
     /// <summary>
     /// Interaction logic for Difficulty.xaml
     /// </summary>
-    public partial class Difficulty : Page
+    public partial class DifficultyPage : Page
     {
-        public Difficulty()
+        public DifficultyPage()
         {
             InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(!(DataContext is null)&& (DataContext as MainPageData).GameController.Type == GameType.OnePlayer)
+            {
+                this.Player2Display.IsEnabled = false;
+            }
         }
     }
 }

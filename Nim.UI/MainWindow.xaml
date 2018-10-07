@@ -3,9 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Nim.UI"
+        xmlns:local="clr-namespace:Nim.UI.Views"
+        xmlns:data="clr-namespace:Nim.UI.ViewModels"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="MainWindow" Height="600" Width="550">
+    <Window.DataContext>
+        <data:MainPageData/>
+    </Window.DataContext>
     <StackPanel Background="Purple">
         <Menu Height="22" Background="Purple">
             <MenuItem Header="_Menu" FontFamily="Comic Sans MS" FontSize="15" Foreground="Yellow">
@@ -15,5 +20,7 @@
                 <MenuItem Header="_Close" Background="Purple" Click="Close_Click"/>
             </MenuItem>
         </Menu>
+        <Frame Name="frameToHoldThePages" Background="Purple" NavigationUIVisibility="Visible">
+        </Frame>
     </StackPanel>
 </Window>

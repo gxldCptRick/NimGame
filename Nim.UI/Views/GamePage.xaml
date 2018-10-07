@@ -4,11 +4,33 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Nim.UI.Views"
+      xmlns:userControls="clr-namespace:Nim.UI.Views.UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GamePage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".8*"/>
+            <RowDefinition Height=".1*"/>
+        </Grid.RowDefinitions>
+        <UniformGrid Rows="1">
+            <Label Background="Red"  Content="{Binding Path=P1Name}"/>
+            <Button Content="End Turn" Margin="10"/>
+            <Label Background="blue" Content="{Binding Path=P2Name}"/>
+        </UniformGrid>
+        <ListView Grid.Row="1" Background="Yellow" Name="gameArea" DataContext="{Binding  Path=GameController}" 
+                  ItemsSource="{Binding Path=Piles}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <userControls:PileControl/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Margin="200, 10" Grid.Row="2" Content="Restart"/>
     </Grid>
 </Page>
