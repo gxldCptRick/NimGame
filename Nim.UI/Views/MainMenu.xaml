@@ -16,6 +16,6 @@
             <Button Height="50" Width="200" Background="PeachPuff" Content="_Halp" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="HalpClick"/>
             <Button Height="50" Width="200" Background="PeachPuff" Content="_Settings" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="SettingsClick"/>
         </UniformGrid>
-        <Button Height="50" Margin="20" Background="PeachPuff" Content="E_xit" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32"/>
+        <Button Height="50" Margin="20" Background="PeachPuff" Content="E_xit" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="CloseClick"/>
     </StackPanel>
 </Page>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Nim.Enums;
 
 namespace Nim.UI.Views
 {
@@ -20,8 +21,7 @@ namespace Nim.UI.Views
     /// </summary>
     public partial class MainMenu : Page
     {
-        public event Action<string> CheckClick;
-
+        public event Action<Pages> CheckClick;
         public MainMenu()
         {
             InitializeComponent();
@@ -29,22 +29,27 @@ namespace Nim.UI.Views
 
         private void SinglePlayerClick(object sender, RoutedEventArgs e)
         {
-            
+            CheckClick(Pages.Difficulty);
         }
 
         private void TwoPlayerClick(object sender, RoutedEventArgs e)
         {
-
+            CheckClick(Pages.Difficulty);
         }
 
         private void HalpClick(object sender, RoutedEventArgs e)
         {
-            
+            CheckClick(Pages.Halp);
         }
 
         private void SettingsClick(object sender, RoutedEventArgs e)
         {
+            CheckClick(Pages.Settings);
+        }
 
+        private void CloseClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
