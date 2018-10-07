@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Nim.UI.Converters
@@ -16,22 +19,23 @@ namespace Nim.UI.Converters
         private static readonly BitmapImage SharedImage;
         static IntToImagesConverter()
         {
-            SharedImage = new BitmapImage(new Uri(@"Resources\donut.png", UriKind.Relative));
+            Uri uri = new Uri(Path.Combine(Environment.CurrentDirectory, "Resources", "doughnut.jpg"), UriKind.Absolute);
+            SharedImage = new BitmapImage(uri);
+
         }
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is int actual)
             {
-                var collectionOfImages = new List<Image>();
+                var collectionOfImages = new List<UIElement>();
                 for (int i = 0; i < actual; i++)
                 {
                     var image = new Image()
                     {
-                        Height = 50,
-                        Width = 50,
                         Source = SharedImage,
-                       Visibility = Visibility.Visible
+                        Width = 50,
+                        Height = 50
                     };
 
                     collectionOfImages.Add(image);

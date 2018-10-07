@@ -34,7 +34,7 @@ namespace Nim.UI.Views.UserControls
         {
             spawnGrid.Children.Clear();
             var value = (DataContext as PileData).AmountLeft;
-            var images = converter.Convert(value, null, null, null) as List<Image>;
+            var images = converter.Convert(value, null, null, null) as List<UIElement>;
             foreach (var image in images)
             {
                 image.MouseDown += (s, e) =>

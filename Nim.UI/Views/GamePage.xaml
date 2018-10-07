@@ -23,7 +23,7 @@
             <Button Content="End Turn" Margin="10"/>
             <Label Background="blue" Content="{Binding Path=P2Name}"/>
         </UniformGrid>
-        <ListView Grid.Row="1" Background="Yellow" Name="gameArea" DataContext="{Binding  Path=GameController}" 
+        <ListView Grid.Row="1" Background="Transparent" Name="gameArea" DataContext="{Binding  Path=GameController}" 
                   ItemsSource="{Binding Path=Piles}">
             <ListView.ItemTemplate>
                 <DataTemplate>
