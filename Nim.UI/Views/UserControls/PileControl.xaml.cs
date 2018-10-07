@@ -28,6 +28,11 @@ namespace Nim.UI.Views.UserControls
         {
             ResetSpawnGrid();
             (DataContext as PileData).PropertyChanged += AmountLeftHandler;
+            takeBtn.Click += (s, i) =>
+            {
+                (DataContext as PileData).AmountTaken++;
+                (DataContext as PileData).AmountLeft--;
+            };
         }
 
         private void ResetSpawnGrid()
