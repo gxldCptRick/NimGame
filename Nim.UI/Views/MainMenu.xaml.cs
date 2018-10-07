@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Nim.UI.Views.UserControls;
 
 namespace Nim.UI.Views
 {
     /// <summary>
-    /// Interaction logic for Difficulty.xaml
+    /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class Difficulty : Page
+    public partial class MainMenu : Page
     {
-        public Difficulty()
+        public MainMenu()
         {
             InitializeComponent();
         }
