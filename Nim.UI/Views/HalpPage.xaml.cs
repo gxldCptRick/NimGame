@@ -20,7 +20,6 @@ namespace Nim.UI.Views
     /// </summary>
     public partial class Halp : Page
     {
-        public event Action<string> CheckClick;
         public Halp()
         {
             InitializeComponent();

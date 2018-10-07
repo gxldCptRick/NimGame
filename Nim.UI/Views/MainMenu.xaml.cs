@@ -39,7 +39,7 @@ namespace Nim.UI.Views
 
         private void HalpClick(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void SettingsClick(object sender, RoutedEventArgs e)
