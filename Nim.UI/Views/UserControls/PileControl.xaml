@@ -8,6 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="75" d:DesignWidth="550"
              Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <converters:BoolToColorConverter x:Key="Dean"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".2*"/>
@@ -15,11 +18,13 @@
             <ColumnDefinition Width=".2*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Content="{Binding Path=PileID}" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="5, 20" FontSize="24"/>
-        <UniformGrid Grid.Column="1" Name="spawnGrid" />
-        <Button Grid.Column="2" Content="Take" 
+            <UniformGrid Grid.Column="1" Name="spawnGrid" Rows="1" />
+            <Label Grid.Column="2" Content="Take" Name="takeBtn"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
                 FontFamily="Comic Sans MS" 
                 Foreground="Yellow" 
-                Background="Plum"
+                Background="{Binding Path=IsEnabled,Converter={StaticResource Dean}}"
                 FontSize="24"/>
     </Grid>
 </UserControl>

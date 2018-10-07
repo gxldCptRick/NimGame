@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Nim.UI.ViewModels;
+using Nim.UI.Views.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,27 @@ namespace Nim.UI.Views
     /// </summary>
     public partial class GamePage : Page
     {
+        private bool canUpdateGameArea;
         public GamePage()
         {
+            canUpdateGameArea = true;
             InitializeComponent();
+        }
+
+        private void gameArea_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (canUpdateGameArea)
+            {
+                gameArea.Focusable = false;
+                foreach (var item in gameArea.Items)
+                {
+                    if (gameArea.SelectedItem != item)
+                    {
+                        ((PileData)item).IsEnabled = false;
+                    }
+                }
+            }
+            canUpdateGameArea = false;
         }
     }
 }
