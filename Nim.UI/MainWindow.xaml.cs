@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Nim.Enums;
 
 namespace Nim.UI
 {
@@ -21,7 +22,6 @@ namespace Nim.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
@@ -32,14 +32,15 @@ namespace Nim.UI
         }
         private void Halp_Click(object sender, RoutedEventArgs e)
         {
-            Halp halp = new Halp();
-            halp.DataContext = this.DataContext;
-            this.frameToHoldThePages.Navigate(halp);
-            
+
         }
         private void Main_Click(object sender, RoutedEventArgs e)
         {
             MainMenu mainMenu = new MainMenu();
+            mainMenu.CheckClick += value =>
+            {
+                ChangePage(value);
+            }; 
             mainMenu.DataContext = this.DataContext;
             this.frameToHoldThePages.Navigate(mainMenu);
         }
@@ -51,9 +52,40 @@ namespace Nim.UI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var page =  new GamePage();
+            // Change to MainMenu after testing is done.
+            var page = new GamePage();
             page.DataContext = this.DataContext;
             this.frameToHoldThePages.Navigate(page);
+        }
+
+        private void ChangePage(Pages options)
+        {
+            switch (options)
+            {
+                case Pages.Difficulty:
+                    var difficulty = new DifficultyPage();
+                    difficulty.DataContext = this.DataContext;
+                    this.frameToHoldThePages.Navigate(difficulty);
+                    break;
+                case Pages.Halp:
+                    Halp halp = new Halp();
+                    halp.DataContext = this.DataContext;
+                    this.frameToHoldThePages.Navigate(halp);
+                    break;
+                case Pages.Settings:
+                    //this.frameToHoldThePages.Navigate();
+                    break;
+                case Pages.Game:
+                    var game = new GamePage();
+                    game.DataContext = this.DataContext;
+                    this.frameToHoldThePages.Navigate(game);
+                    break;
+                case Pages.MainMenu:
+                    //this.frameToHoldThePages.Navigate();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
