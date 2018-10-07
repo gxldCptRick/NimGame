@@ -13,6 +13,7 @@ namespace Nim.Lib.Models
         /// The Difficulty of the game created.
         /// </summary>
         public readonly GameDifficulty Difficulty;
+        
         /// <summary>
         /// the event that is fired to signal when the Game is over.
         /// </summary>
@@ -60,7 +61,7 @@ namespace Nim.Lib.Models
         public bool TakeFromPile(string pileID, int numberOfObjectsTaking)
         {
             bool isAbleToTakeFromPile = false;
-            if (piles.ContainsKey(pileID) && numberOfObjectsTaking <= piles[pileID])
+            if (piles.ContainsKey(pileID) && numberOfObjectsTaking <= piles[pileID] && numberOfObjectsTaking > 0)
             {
                 isAbleToTakeFromPile = true;
                 piles[pileID] -= numberOfObjectsTaking;
