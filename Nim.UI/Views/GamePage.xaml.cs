@@ -44,5 +44,19 @@ namespace Nim.UI.Views
             }
             canUpdateGameArea = false;
         }
+
+        private void restartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            gameArea.SelectedIndex = -1;
+            gameArea.Focusable = true;
+            foreach (var item in gameArea.Items)
+            { 
+                ((PileData)item).IsEnabled = true;
+            }
+            canUpdateGameArea = true;
+
+            MainPageData dc = (MainPageData)this.DataContext;
+            dc.GameController.ResetGame();
+        }
     }
 }
