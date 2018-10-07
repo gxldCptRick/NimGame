@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="200">
     <Grid>
-        <Label Content="Enter Name:" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" Foreground="Yellow"/>
+        <Label Content="Enter Name:" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" Foreground="Yellow" />
         <TextBox HorizontalAlignment="Left" Height="23" Margin="55,39,0,0" TextWrapping="Wrap" Text="{Binding PName}" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS" 
                  Foreground="Yellow" Background="Plum"/>
     </Grid>
