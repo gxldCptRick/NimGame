@@ -31,6 +31,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Margin="200, 10" Grid.Row="2" Content="Restart"/>
+        <Button Margin="200, 10" Grid.Row="2" Content="Restart" Name="restartBtn" Click="restartBtn_Click"/>
     </Grid>
 </Page>
