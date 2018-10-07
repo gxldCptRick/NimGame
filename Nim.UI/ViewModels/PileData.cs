@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Nim.UI.ViewModels
+﻿namespace Nim.UI.ViewModels
 {
     public class PileData : ViewModelBase
     {
@@ -19,9 +13,22 @@ namespace Nim.UI.ViewModels
         /// <param name="originalAmount">the original amount to start with</param>
         public PileData(string pileID, int originalAmount)
         {
-            this.PileID = pileID;
-            this.AmountLeft = originalAmount;
+            PileID = pileID;
+            AmountLeft = originalAmount;
+            IsEnabled = true;
         }
+
+        private bool _isEnabled;
+
+        public bool IsEnabled
+        {
+            get => _isEnabled; set
+            {
+                _isEnabled = value;
+                PropertyChanging();
+            }
+        }
+
 
         /// <summary>
         /// the id for the pile being represented.
@@ -31,7 +38,7 @@ namespace Nim.UI.ViewModels
             get => _pileID; set
             {
                 _pileID = value;
-                this.PropertyChanging();
+                PropertyChanging();
             }
         }
         /// <summary>

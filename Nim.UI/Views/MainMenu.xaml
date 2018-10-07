@@ -10,12 +10,12 @@
 
     <StackPanel>
         <Label Content="The Game of Nim" Height="100" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="60"/>
-        <Button Height="50" Margin="20" Background="PeachPuff" Content="_1 Player" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="SinglePlayerClick"/>
-        <Button Height="50" Margin="20" Background="PeachPuff" Content="_2 Player" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="TwoPlayerClick"/>
+        <Button Height="50" Margin="20" Background="Plum" Content="_1 Player" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="SinglePlayerClick"/>
+        <Button Height="50" Margin="20" Background="Plum" Content="_2 Player" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="TwoPlayerClick"/>
         <UniformGrid Height="100" Rows="1">
-            <Button Height="50" Width="200" Background="PeachPuff" Content="_Halp" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="HalpClick"/>
-            <Button Height="50" Width="200" Background="PeachPuff" Content="_Settings" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="SettingsClick"/>
+            <Button Height="50" Width="200" Background="Plum" Content="_Halp" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="HalpClick"/>
+            <Button Height="50" Width="200" Background="Plum" Content="_Settings" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Click="SettingsClick"/>
         </UniformGrid>
-        <Button Height="50" Margin="20" Background="PeachPuff" Content="E_xit" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32"/>
+        <Button Height="50" Margin="20" Background="Plum" Content="E_xit" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32"/>
     </StackPanel>
 </Page>
