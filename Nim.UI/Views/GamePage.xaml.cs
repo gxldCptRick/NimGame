@@ -22,22 +22,27 @@ namespace Nim.UI.Views
     /// </summary>
     public partial class GamePage : Page
     {
+        private bool canUpdateGameArea;
         public GamePage()
         {
+            canUpdateGameArea = true;
             InitializeComponent();
         }
 
         private void gameArea_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("hi");
-            gameArea.Focusable = false;
-            foreach (var item in gameArea.Items)
+            if (canUpdateGameArea)
             {
-                if(gameArea.SelectedItem != item)
+                gameArea.Focusable = false;
+                foreach (var item in gameArea.Items)
                 {
-                    ((PileData)item).IsEnabled = false;
+                    if (gameArea.SelectedItem != item)
+                    {
+                        ((PileData)item).IsEnabled = false;
+                    }
                 }
             }
+            canUpdateGameArea = false;
         }
     }
 }

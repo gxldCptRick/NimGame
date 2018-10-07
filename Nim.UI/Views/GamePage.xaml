@@ -27,7 +27,7 @@
                   ItemsSource="{Binding Path=Piles}" SelectionChanged="gameArea_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <userControls:PileControl IsEnabled="{Binding Path=IsEnabled}"/>
+                    <userControls:PileControl IsEnabled="{Binding Path=IsEnabled}" IsHitTestVisible="{Binding Path=isEnabled}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
