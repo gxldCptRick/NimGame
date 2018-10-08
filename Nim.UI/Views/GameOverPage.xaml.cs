@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Nim.Enums;
 
-namespace Nim.UI.Views.UserControls
+namespace Nim.UI.Views
 {
     /// <summary>
     /// Interaction logic for GameOver.xaml

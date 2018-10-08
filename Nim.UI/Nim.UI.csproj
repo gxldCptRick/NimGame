@@ -77,7 +77,7 @@
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\GameOverPage.xaml.cs">
+    <Compile Include="Views\GameOverPage.xaml.cs">
       <DependentUpon>GameOverPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\NameEntryControl.xaml.cs">
@@ -118,7 +118,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserControls\GameOverPage.xaml">
+    <Page Include="Views\GameOverPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
