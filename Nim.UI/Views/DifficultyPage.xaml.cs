@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Nim.Lib.Enums;
 using Nim.UI.ViewModels;
 using Nim.UI.Views.UserControls;
+using Nim.Enums;
 
 namespace Nim.UI.Views
 {
@@ -23,6 +24,7 @@ namespace Nim.UI.Views
     /// </summary>
     public partial class DifficultyPage : Page
     {
+        public event Action<Pages> CheckClick;
         public DifficultyPage()
         {
             InitializeComponent();
@@ -34,6 +36,16 @@ namespace Nim.UI.Views
             {
                 this.Player2Display.IsEnabled = false;
             }
+        }
+
+        private void StartGame_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckClick != null) CheckClick(Pages.Game);
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            CheckClick(Pages.MainMenu);
         }
     }
 }

@@ -20,9 +20,20 @@ namespace Nim.UI.Views
     /// </summary>
     public partial class Halp : Page
     {
+
         public Halp()
         {
             InitializeComponent();
+        }
+
+        private void HowTo_Click(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show();
+        }
+
+        private void Devinfo_Click(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show();
         }
     }
 }

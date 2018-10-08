@@ -32,7 +32,7 @@ namespace Nim.UI
         }
         private void Halp_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
         private void Main_Click(object sender, RoutedEventArgs e)
         {
@@ -40,9 +40,18 @@ namespace Nim.UI
             mainMenu.CheckClick += value =>
             {
                 ChangePage(value);
-            }; 
+            };
             mainMenu.DataContext = this.DataContext;
             this.frameToHoldThePages.Navigate(mainMenu);
+        }
+
+        private void Difficulty_Click(object sender, RoutedEventArgs e)
+        {
+            DifficultyPage difficulty = new DifficultyPage();
+            difficulty.CheckClick += value =>
+            {
+                ChangePage(value);
+            };
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -64,6 +73,10 @@ namespace Nim.UI
             {
                 case Pages.Difficulty:
                     var difficulty = new DifficultyPage();
+                    difficulty.CheckClick += value =>
+                    {
+                        ChangePage(value);
+                    };
                     difficulty.DataContext = this.DataContext;
                     this.frameToHoldThePages.Navigate(difficulty);
                     break;
@@ -73,7 +86,9 @@ namespace Nim.UI
                     this.frameToHoldThePages.Navigate(halp);
                     break;
                 case Pages.Settings:
-                    //this.frameToHoldThePages.Navigate();
+                    var settings = new Settings();
+                    settings.DataContext = this.DataContext;
+                    this.frameToHoldThePages.Navigate(settings);
                     break;
                 case Pages.Game:
                     var game = new GamePage();
@@ -81,7 +96,13 @@ namespace Nim.UI
                     this.frameToHoldThePages.Navigate(game);
                     break;
                 case Pages.MainMenu:
-                    //this.frameToHoldThePages.Navigate();
+                    MainMenu mainMenu = new MainMenu();
+                    mainMenu.CheckClick += value =>
+                    {
+                        ChangePage(value);
+                    };
+                    mainMenu.DataContext = this.DataContext;
+                    this.frameToHoldThePages.Navigate(mainMenu);
                     break;
                 default:
                     break;
