@@ -22,8 +22,8 @@
             <RowDefinition Height=".1*"/>
         </Grid.RowDefinitions>
         <UniformGrid Name="CustomNameGrid" Grid.Row="0" Grid.Column="1">
-            <controls:NameEntryControl PName="{Binding P1Name}"/>
-            <controls:NameEntryControl x:Name="Player2Display" PName="{Binding P2Name}"/>
+            <controls:NameEntryControl x:Name="Player1Display" PName="{Binding Path=P1Name, Mode=TwoWay}" />
+            <controls:NameEntryControl x:Name="Player2Display" PName="{Binding Path=P2Name, Mode=TwoWay}" />
         </UniformGrid>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <!--Put the NameEntryControl at the top of the stack panel-->

@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using Nim.Enums;
 using Nim.Lib.Enums;
 using Nim.UI.ViewModels;
-using Nim.UI.Views.UserControls;
-using Nim.Enums;
+using System;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Nim.UI.Views
 {
@@ -32,25 +20,29 @@ namespace Nim.UI.Views
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            if(!(DataContext is null)&& (DataContext as MainPageData).GameController.Type == GameType.OnePlayer)
+            if (!(DataContext is null) && (DataContext as MainPageData).GameController.Type == GameType.OnePlayer)
             {
-                this.Player2Display.IsEnabled = false;
+                Player2Display.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                Player2Display.Visibility = Visibility.Visible;
             }
         }
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
-            MainPageData dc = (MainPageData)this.DataContext;
+            MainPageData dc = (MainPageData)DataContext;
             GameDifficulty gd = GameDifficulty.Easy;
-            if(rdoEasy.IsChecked==true)
+            if (rdoEasy.IsChecked == true)
             {
                 gd = GameDifficulty.Easy;
             }
-            else if (rdoMedium.IsChecked==true)
+            else if (rdoMedium.IsChecked == true)
             {
                 gd = GameDifficulty.Medium;
             }
-            else if (rdoHard.IsChecked==true)
+            else if (rdoHard.IsChecked == true)
             {
                 gd = GameDifficulty.Hard;
             }
