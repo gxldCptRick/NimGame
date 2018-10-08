@@ -1,5 +1,6 @@
 ﻿using Nim.UI.Converters;
 using Nim.UI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
@@ -30,8 +31,12 @@ namespace Nim.UI.Views.UserControls
             (DataContext as PileData).PropertyChanged += AmountLeftHandler;
             takeBtn.MouseLeftButtonUp += (s, i) =>
             {
-                (DataContext as PileData).AmountTaken++;
-                (DataContext as PileData).AmountLeft--;
+                if (DataContext is PileData data)
+                {
+                    data.AmountLeft--;
+                    data.AmountTaken++;
+                    data.Invoke();
+                }
             };
         }
 
@@ -44,8 +49,12 @@ namespace Nim.UI.Views.UserControls
             {
                 image.MouseDown += (s, e) =>
                 {
-                    (DataContext as PileData).AmountTaken++;
-                    (DataContext as PileData).AmountLeft--;
+                    if (DataContext is PileData data)
+                    {
+                        data.AmountLeft--;
+                        data.AmountTaken++;
+                        data.Invoke();
+                    }
                 };
                 spawnGrid.Children.Add(image);
             }

@@ -1,44 +1,52 @@
 ﻿using Nim.Lib.Enums;
-using Nim.UI.Controllers;
 using Nim.UI.ViewModels;
-using Nim.UI.Views.UserControls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Nim.UI.Views
 {
     /// <summary>
     /// Interaction logic for GamePage.xaml
     /// </summary>
-    public partial class GamePage : Page
+    public partial class GamePage : Page, INotifyPropertyChanged
     {
         private bool canUpdateGameArea;
+        private bool _firstMoveMade;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public bool FirstMoveMade
+        {
+            get => _firstMoveMade; private set
+            {
+                _firstMoveMade = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("FirstMoveMade"));
+            }
+        }
+
         public GamePage()
         {
             canUpdateGameArea = true;
             InitializeComponent();
+            var binding = new Binding("FirstMoveMade")
+            {
+                Source = this
+            };
+
+            EndBtn.SetBinding(Button.IsEnabledProperty, binding);
         }
 
         private void gameArea_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (canUpdateGameArea)
             {
-                gameArea.Focusable = false;
-                foreach (var item in gameArea.Items)
+                GameArea.Focusable = false;
+                foreach (var item in GameArea.Items)
                 {
-                    if (gameArea.SelectedItem != item)
+                    if (GameArea.SelectedItem != item)
                     {
                         ((PileData)item).IsEnabled = false;
                     }
@@ -50,39 +58,44 @@ namespace Nim.UI.Views
         private void RestartBtn_Click(object sender, RoutedEventArgs e)
         {
             UnlockTheUI();
-            MainPageData dc = (MainPageData) this.DataContext;
+            MainPageData dc = (MainPageData)DataContext;
             dc.GameController.ResetGame();
         }
 
         private void EndBtn_Clicked(object sender, RoutedEventArgs e)
         {
-            UnlockTheUI();
-            MainPageData dc = (MainPageData)this.DataContext;
-            dc.GameController.ProcessTurn();
-            HighlightTheCorrectPlayer();
+            if (FirstMoveMade)
+            {
+                UnlockTheUI();
+                MainPageData dc = (MainPageData)DataContext;
+                dc.GameController.ProcessTurn();
+                HighlightTheCorrectPlayer();
+                FirstMoveMade = false;
+            }
+
         }
 
         private void UnlockTheUI()
         {
-            gameArea.SelectedIndex = -1;
-            gameArea.Focusable = true;
+            GameArea.SelectedIndex = -1;
+            GameArea.Focusable = true;
             canUpdateGameArea = true;
         }
 
         private void HighlightTheCorrectPlayer()
         {
-            if (this.DataContext is MainPageData data)
+            if (DataContext is MainPageData data)
             {
                 if (data.GameController.CurrentTurn == PlayerTurn.PlayerOne)
                 {
-                    this.Player1.Background = Brushes.Plum;
-                    this.Player2.Background = Brushes.Transparent;
+                    Player1.Background = Brushes.Plum;
+                    Player2.Background = Brushes.Transparent;
                 }
                 else
                 {
 
-                    this.Player1.Background = Brushes.Transparent;
-                    this.Player2.Background = Brushes.Plum;
+                    Player1.Background = Brushes.Transparent;
+                    Player2.Background = Brushes.Plum;
                 }
             }
         }
@@ -90,6 +103,13 @@ namespace Nim.UI.Views
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             HighlightTheCorrectPlayer();
+            foreach (var item in GameArea.Items)
+            {
+                if (item is PileData data)
+                {
+                    data.ActionDid += () => FirstMoveMade = true;
+                }
+            }
         }
     }
 }

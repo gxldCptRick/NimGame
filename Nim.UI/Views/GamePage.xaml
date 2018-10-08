@@ -24,8 +24,12 @@
             <Button Content="End Turn" Margin="10" Name="EndBtn" Click="EndBtn_Clicked"/>
             <Label Foreground="Yellow" Name="Player2" Content="{Binding Path=P2Name}"/>
         </UniformGrid>
-        <ListView Grid.Row="1" Background="Transparent" Name="gameArea" DataContext="{Binding  Path=GameController}" 
-                  ItemsSource="{Binding Path=Piles}" SelectionChanged="gameArea_SelectionChanged">
+        <ListView Grid.Row="1" 
+                  Background="Transparent" 
+                  Name="GameArea" 
+                  DataContext="{Binding  Path=GameController}" 
+                  ItemsSource="{Binding Path=Piles}" 
+                  SelectionChanged="gameArea_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <userControls:PileControl IsEnabled="{Binding Path=IsEnabled}" IsHitTestVisible="{Binding Path=isEnabled}"/>
