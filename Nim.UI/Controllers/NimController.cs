@@ -137,7 +137,10 @@ namespace Nim.UI.Controllers
             if (Type == GameType.OnePlayer)
             {
                 SwitchTurn();
-                ProcessBotTurn();
+                if (!isGameOver)
+                {
+                    ProcessBotTurn();
+                }
             }
             else
             {
