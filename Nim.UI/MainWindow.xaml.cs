@@ -51,7 +51,6 @@ namespace Nim.UI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Change to MainMenu after testing is done
             ChangePage(Pages.MainMenu);
         }
 
@@ -99,6 +98,8 @@ namespace Nim.UI
                     {
                         ChangePage(value);
                     };
+                    gameOver.DataContext = this.DataContext;
+                    this.frameToHoldThePages.Navigate(gameOver);
                     break;
                 default:
                     break;
