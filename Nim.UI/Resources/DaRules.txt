@@ -1,0 +1,31 @@
+These Are The Rules For Nim
+You play by having multiple piles to choose from 
+A |
+B ||| 
+C |||||
+D |||||||
+
+Each Player than takes turns Taking sticks from the pile
+The Catch is that you can only take from one pile at a time.
+However!!! You may take as many as you want from the pile.
+So Example
+Player 1 takes 1 from pile A
+A 
+B |||
+C |||||
+D |||||||
+Player 2 Takes all from pile D
+A 
+B |||
+C |||||
+D 
+
+They Keep going until there are no more sticks in any pile.
+The Last person to take a stick loses.
+Example:
+A
+B |
+C ||
+D
+player takes all from C
+last player is forced to take the last from B
