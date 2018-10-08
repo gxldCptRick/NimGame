@@ -22,7 +22,7 @@
 
         public bool IsEnabled
         {
-            get => _isEnabled; set
+            get => _isEnabled && AmountLeft!=0; set
             {
                 _isEnabled = value;
                 PropertyChanging();

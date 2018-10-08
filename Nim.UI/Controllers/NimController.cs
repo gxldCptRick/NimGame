@@ -180,6 +180,7 @@ namespace Nim.UI.Controllers
                 {
                     pile.AmountTaken = 0;
                     pile.AmountLeft = game.GetPileSize(pile.PileID);
+                    pile.IsEnabled = true;
                 }
             }
 
