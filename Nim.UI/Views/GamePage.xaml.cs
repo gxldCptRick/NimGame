@@ -64,17 +64,6 @@ namespace Nim.UI.Views
         {
             gameArea.SelectedIndex = -1;
             gameArea.Focusable = true;
-            foreach (var item in gameArea.Items)
-            {
-                if (((PileData)item).AmountLeft==0)
-                {
-                    ((PileData)item).IsEnabled = false;
-                }
-                else
-                {
-                    ((PileData)item).IsEnabled = true;
-                }
-            }
             canUpdateGameArea = true;
         }
     }
