@@ -58,6 +58,7 @@ namespace Nim.UI
         private void ChangePage(Pages options)
         {
             switch (options)
+
             {
                 case Pages.Difficulty:
                     var difficulty = new DifficultyPage();
@@ -91,6 +92,13 @@ namespace Nim.UI
                     };
                     mainMenu.DataContext = this.DataContext;
                     this.frameToHoldThePages.Navigate(mainMenu);
+                    break;
+                case Pages.GameOver:
+                    var gameOver = new GameOver();
+                    gameOver.CheckClick += value =>
+                    {
+                        ChangePage(value);
+                    };
                     break;
                 default:
                     break;
