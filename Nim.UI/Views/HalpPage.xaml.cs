@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,8 @@ namespace Nim.UI.Views
 
         private void HowTo_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show();
+            var allDaRules = File.ReadAllText("Resources/DaRules.txt");
+            MessageBox.Show(allDaRules);
         }
 
         private void Devinfo_Click(object sender, RoutedEventArgs e)

@@ -164,6 +164,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\DaRules.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\doughnut.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
