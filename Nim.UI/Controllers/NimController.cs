@@ -66,6 +66,7 @@ namespace Nim.UI.Controllers
             get => _difficulty; set
             {
                 _difficulty = value;
+                ResetGame();
                 PropertyChanging();
             }
         }
