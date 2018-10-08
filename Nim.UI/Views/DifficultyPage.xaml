@@ -27,7 +27,7 @@
         </UniformGrid>
         <StackPanel Grid.Column="1" Grid.Row="1">
             <!--Put the NameEntryControl at the top of the stack panel-->
-            <RadioButton Name="rdoEasy" Content="Easy" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10" FontSize="32"/>
+            <RadioButton Name="rdoEasy" IsChecked="True" Content="Easy" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10" FontSize="32"/>
             <RadioButton Name="rdoMedium" Content="Medium" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10" FontSize="32"/>
             <RadioButton Name="rdoHard" Content="Hard" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10" FontSize="32"/>
         </StackPanel>

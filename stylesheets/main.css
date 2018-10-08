@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  font-family: "Comic Sans MS", sans-serif;
+  padding: 0;
+  display: inline-block;
+  color: yellow;
+}
+body,
+html {
+  background: #c001af;
+  height: 98.38%;
+  width: 100%;
+}
+title {
+  display: none;
+}
+
+.Title {
+  padding: 0.5%;
+  overflow: hidden;
+  margin: 0 8%;
+  background: rgba(255, 215, 0, 0.7);
+}
+
+.about {
+  padding: 1%;
+  width: 50%;
+  margin: 0 25% 0 25%;
+  text-align: center;
+  background: rgba(186, 218, 34, 0.7);
+}
+
+.description {
+  margin: 1.5em 6em;
+  padding: 1em 7em;
+  font-size: 1.2em;
+  background: rgba(192, 255, 238, 0.2);
+}
+
+.download-link {
+  background: rgba(153, 170, 51, 0.7);
+  padding: 0.1em;
+  text-align: center;
+  width: 80%;
+  margin: 10%;
+}
+
+h3 {
+  font-size: 2em;
+  width: 24%;
+  margin: 10% 38%;
+}
+
+.download-link:hover {
+  background: rgba(186, 218, 34, 0.9);
+}
+
+header {
+  display: block;
+  height: 10%;
+}
+
+main {
+  display: block;
+  height: 80%;
+  margin: 1em 2em;
+  background: rgba(218, 112, 214, 0.8);
+}
+
+footer {
+  display: block;
+  margin-top: 1em;
+  background: rgba(255, 215, 0, 0.5);
+}

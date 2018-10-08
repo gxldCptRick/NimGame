@@ -11,8 +11,12 @@
     <Window.DataContext>
         <data:MainPageData/>
     </Window.DataContext>
-    <StackPanel Background="Purple">
-        <Menu Height="22" Background="Purple">
+    <Grid Background="Purple">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".05*"/>
+            <RowDefinition Height=".9*"/>
+        </Grid.RowDefinitions>
+        <Menu Height="22" Background="Purple" Grid.Row="0" >
             <MenuItem Header="_Menu" FontFamily="Comic Sans MS" FontSize="15" Foreground="Yellow">
                 <MenuItem Header="_Options" Background="Purple" Click="Options_Click"/>
                 <MenuItem Header="_Halp" Background="Purple" Click="Halp_Click"/>
@@ -20,7 +24,7 @@
                 <MenuItem Header="_Close" Background="Purple" Click="Close_Click"/>
             </MenuItem>
         </Menu>
-        <Frame Name="frameToHoldThePages" Background="Purple" NavigationUIVisibility="Visible">
+        <Frame Name="frameToHoldThePages" Background="Purple" NavigationUIVisibility="Visible" Grid.Row="1">
         </Frame>
-    </StackPanel>
+    </Grid>
 </Window>

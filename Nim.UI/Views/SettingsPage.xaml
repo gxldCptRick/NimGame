@@ -20,9 +20,9 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <RadioButton Content="Custom Image" Grid.Row="0" Grid.Column="0" Foreground="Yellow" FontFamily="Comic Sans MS" FontSize="32" Margin="10"/>
-                <Button Content="_Upload Image" Grid.Row="0" Grid.Column="1" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" FontSize="32" Margin="10"/>
-                <RadioButton Content="Default Image" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Grid.ColumnSpan="2" Grid.Row="1" Margin="10"/>
+                <RadioButton Content="Default Image" Grid.Row="0" IsChecked="True" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Grid.ColumnSpan="2" Margin="10"/>
+                <RadioButton Content="Custom Image" Grid.Row="1"  Grid.Column="0" Foreground="Yellow" FontFamily="Comic Sans MS" FontSize="32" Margin="10"/>
+                <Button Content="_Upload Image" Grid.Row="1" Grid.Column="1" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" FontSize="32" Margin="10"/>
                 <Label Content="Color Scheme" Grid.Row="2" FontFamily="Comic Sans MS" Foreground="Yellow" FontSize="32" Margin="10"/>
                 <ComboBox Grid.Row="2" Grid.Column="1" Margin="10" FontFamily="Comic Sans MS" FontSize="32" Foreground="Yellow" Background="Plum"/>
             </Grid>
