@@ -81,6 +81,10 @@ namespace Nim.UI
                 case Pages.Game:
                     var game = new GamePage();
                     game.DataContext = this.DataContext;
+                    game.CheckClick += value =>
+                    {
+                        ChangePage(value);
+                    };
                     this.frameToHoldThePages.Navigate(game);
                     break;
                 case Pages.MainMenu:

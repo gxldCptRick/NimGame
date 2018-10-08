@@ -40,10 +40,9 @@ namespace Nim.UI.Views
                 Source = this
             };
 
-            if(this.DataContext is MainPageData mainPage)
-            {
-                mainPage.GameController.GameOver += (s, e) => CheckClick?.Invoke(Pages.GameOver);
-            }
+            
+                
+            
 
             EndBtn.SetBinding(Button.IsEnabledProperty, binding);
         }
@@ -118,6 +117,10 @@ namespace Nim.UI.Views
                 {
                     data.ActionDid += () => FirstMoveMade = true;
                 }
+            }
+            if(this.DataContext is MainPageData mainPage)
+            {
+                mainPage.GameController.GameOver += (s, i) => CheckClick?.Invoke(Pages.GameOver);
             }
         }
     }

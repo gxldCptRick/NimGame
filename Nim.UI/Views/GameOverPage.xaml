@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Nim.UI.Views.UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="550"
-      Title="GameOver">
+      Title="GameOver"
+      Loaded="Page_Loaded">
 
     <Grid>
         <StackPanel HorizontalAlignment="Center">

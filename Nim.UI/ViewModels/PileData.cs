@@ -72,6 +72,7 @@ namespace Nim.UI.ViewModels
             {
                 _amountLeft = value;
                 PropertyChanging();
+                PropertyChanging("IsEnabled");
             }
         }
     }

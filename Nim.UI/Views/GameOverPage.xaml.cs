@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Nim.Enums;
+using Nim.UI.ViewModels;
 
 namespace Nim.UI.Views
 {
@@ -30,6 +31,10 @@ namespace Nim.UI.Views
 
         private void Restart_Click(object sender, RoutedEventArgs e)
         {
+            if(this.DataContext is MainPageData mainPage)
+            {
+                mainPage.GameController.ResetGame();
+            }
             CheckClick(Pages.Game);
         }
 
@@ -46,6 +51,27 @@ namespace Nim.UI.Views
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(DataContext is MainPageData data)
+            {
+                string ending = " has won!!!";
+                switch (data.GameController.CurrentTurn)
+                {
+                    case Lib.Enums.PlayerTurn.PlayerOne:
+                        lblWinner.Content = data.P2Name;
+                        break;
+                    case Lib.Enums.PlayerTurn.PlayerTwo:
+                        lblWinner.Content = data.P1Name;
+                        break;
+                    default:
+                        throw new ArgumentException("UnsupportedTurn Is Being Used.");
+                }
+
+                lblWinner.Content += ending;
+            }
         }
     }
 }

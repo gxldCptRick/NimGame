@@ -84,6 +84,7 @@ namespace Nim.UI.Controllers
         private PlayerTurn _currentTurn;
         private GameType _type;
         private GameDifficulty _difficulty;
+        private bool isGameOver = false;
 
         /// <summary>
         /// Initializes a blank NimController with a default game object of type easy.
@@ -101,6 +102,8 @@ namespace Nim.UI.Controllers
         /// </summary>
         public void ResetGame()
         {
+            isGameOver = false;
+
             CurrentTurn = PlayerTurn.PlayerOne;
             if (game != null && game.Difficulty == Difficulty)
             {
@@ -109,7 +112,11 @@ namespace Nim.UI.Controllers
             else
             {
                 game = new NimGame(Difficulty);
-                game.GameOver += (s, e) => GameOver?.Invoke(s, e);
+                game.GameOver += (s, e) =>
+                {
+                    isGameOver = true;
+                    GameOver?.Invoke(s, e);
+                };
                 Piles.Clear();
             }
 
@@ -193,7 +200,7 @@ namespace Nim.UI.Controllers
         /// </summary>
         private void SwitchTurn()
         {
-            CurrentTurn = CurrentTurn == PlayerTurn.PlayerOne ? PlayerTurn.PlayerTwo : PlayerTurn.PlayerOne;
+            if(!isGameOver) CurrentTurn = CurrentTurn == PlayerTurn.PlayerOne ? PlayerTurn.PlayerTwo : PlayerTurn.PlayerOne;
         }
     }
 }

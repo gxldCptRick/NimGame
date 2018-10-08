@@ -7,7 +7,7 @@
         xmlns:data="clr-namespace:Nim.UI.ViewModels"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="MainWindow" Height="600" Width="550">
+        Title="MainWindow" Height="600" Width="600">
     <Window.DataContext>
         <data:MainPageData/>
     </Window.DataContext>
