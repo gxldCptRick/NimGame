@@ -40,6 +40,21 @@ namespace Nim.UI.Views
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
+            MainPageData dc = (MainPageData)this.DataContext;
+            GameDifficulty gd = GameDifficulty.Easy;
+            if(rdoEasy.IsChecked==true)
+            {
+                gd = GameDifficulty.Easy;
+            }
+            else if (rdoMedium.IsChecked==true)
+            {
+                gd = GameDifficulty.Medium;
+            }
+            else if (rdoHard.IsChecked==true)
+            {
+                gd = GameDifficulty.Hard;
+            }
+            dc.GameController.Difficulty = gd;
             if (CheckClick != null) CheckClick(Pages.Game);
         }
 
