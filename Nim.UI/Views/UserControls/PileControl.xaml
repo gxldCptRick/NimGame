@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Content="{Binding Path=PileID}" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="5, 20" FontSize="24"/>
             <UniformGrid Grid.Column="1" Name="spawnGrid" Rows="1" />
-            <Label Grid.Column="2" Content="Take" Name="takeBtn"
+            <Label Grid.Column="2" Content="_Take" Name="takeBtn"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 FontFamily="Comic Sans MS" 

@@ -10,8 +10,8 @@
     <Grid>
 
         <StackPanel>
-            <Button Content="How To Play" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" Margin="5, 100" FontSize="32" Click="HowTo_Click"/>
-            <Button Content="Developer Information" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" Margin="5, 0" FontSize="32" Click="Devinfo_Click"/>
+            <Button Content="_How To Play" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" Margin="5, 100" FontSize="32" Click="HowTo_Click"/>
+            <Button Content="_Developer Information" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" Margin="5, 0" FontSize="32" Click="Devinfo_Click"/>
         </StackPanel>
     </Grid>
 </Page>

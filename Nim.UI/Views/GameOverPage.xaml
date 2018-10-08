@@ -12,7 +12,7 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center">
             <Label Name="lblWinner" Content="Winner" FontFamily="Comic Sans MS" FontSize="24" Foreground="Yellow" HorizontalAlignment="Center" Margin="10"/>
-            <Button Content="Restart Game" FontFamily="Comic Sans MS" FontSize="24" Foreground="Yellow" Background="Plum" HorizontalAlignment="Center" Margin="10" Click="Restart_Click"/>
+            <Button Content="_Restart Game" FontFamily="Comic Sans MS" FontSize="24" Foreground="Yellow" Background="Plum" HorizontalAlignment="Center" Margin="10" Click="Restart_Click"/>
             <Button Content="Change _Difficulty" FontFamily="Comic Sans MS" FontSize="24" Foreground="Yellow" Background="Plum" HorizontalAlignment="Center" Margin="10" Click="ChangeDifficulty_Click"/>
             <Button Content="_Main Menu" FontFamily="Comic Sans MS" FontSize="24" Foreground="Yellow" Background="Plum" HorizontalAlignment="Center" Margin="10" Click="MainMenu_Click"/>
             <Button Content="E_xit" FontFamily="Comic Sans MS" FontSize="24" Foreground="Yellow" Background="Plum" HorizontalAlignment="Center" Margin="10" Click="Exit_Click"/>

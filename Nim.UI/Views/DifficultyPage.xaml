@@ -32,6 +32,6 @@
             <RadioButton Name="rdoHard" Content="Hard" FontFamily="Comic Sans MS" Foreground="Yellow" Margin="10" FontSize="32"/>
         </StackPanel>
         <Button Grid.Row="2" Content="_Start" Grid.Column="2" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" FontSize="24" Click="StartGame_Click"/>
-        <Button Grid.Row="2" Grid.Column="0" Content="Back" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" FontSize="24" Click="Back_Click"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="_Back" FontFamily="Comic Sans MS" Foreground="Yellow" Background="Plum" FontSize="24" Click="Back_Click"/>
     </Grid>
 </Page>

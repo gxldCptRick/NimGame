@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
         <UniformGrid Rows="1">
             <Label Foreground="Yellow"  Content="{Binding Path=P1Name}" Name="Player1"/>
-            <Button Content="End Turn" Margin="10" Name="EndBtn" Click="EndBtn_Clicked"/>
+            <Button Content="_End Turn" Margin="10" Name="EndBtn" Click="EndBtn_Clicked"/>
             <Label Foreground="Yellow" Name="Player2" Content="{Binding Path=P2Name}"/>
         </UniformGrid>
         <ListView Grid.Row="1" 
@@ -36,6 +36,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Margin="200, 10" Grid.Row="2" Content="Restart" Name="restartBtn" Click="RestartBtn_Click"/>
+        <Button Margin="200, 10" Grid.Row="2" Content="_Restart" Name="restartBtn" Click="RestartBtn_Click"/>
     </Grid>
 </Page>
