@@ -110,6 +110,7 @@ namespace Nim.UI.Controllers
             {
                 game = new NimGame(Difficulty);
                 game.GameOver += (s, e) => GameOver?.Invoke(s, e);
+                Piles.Clear();
             }
 
             ResetPiles();
