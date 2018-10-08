@@ -28,11 +28,11 @@ namespace Nim.UI
         }
         private void Options_Click(object sender, RoutedEventArgs e)
         {
-            
+            ChangePage(Pages.Settings);
         }
         private void Halp_Click(object sender, RoutedEventArgs e)
         {
-            
+            ChangePage(Pages.Halp);
         }
         private void Main_Click(object sender, RoutedEventArgs e)
         {
@@ -41,15 +41,13 @@ namespace Nim.UI
             {
                 ChangePage(value);
             };
+            mainMenu.DataContext = this.DataContext;
+            this.frameToHoldThePages.Navigate(mainMenu);
         }
 
         private void Difficulty_Click(object sender, RoutedEventArgs e)
         {
-            DifficultyPage difficulty = new DifficultyPage();
-            difficulty.CheckClick += value =>
-            {
-                ChangePage(value);
-            };
+            ChangePage(Pages.Difficulty);
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -60,11 +58,7 @@ namespace Nim.UI
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Change to MainMenu after testing is done.
-            var page = new MainMenu();
-            page.CheckClick += value =>
-            {
-                ChangePage(value);
-            };
+            var page = new GamePage();
             page.DataContext = this.DataContext;
             this.frameToHoldThePages.Navigate(page);
         }
