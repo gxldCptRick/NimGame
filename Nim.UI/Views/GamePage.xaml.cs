@@ -5,14 +5,18 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
+using System;
+using Nim.Enums;
 
 namespace Nim.UI.Views
 {
+
     /// <summary>
     /// Interaction logic for GamePage.xaml
     /// </summary>
     public partial class GamePage : Page, INotifyPropertyChanged
     {
+        public event Action<Pages> CheckClick;
         private bool canUpdateGameArea;
         private bool _firstMoveMade;
 
@@ -35,6 +39,11 @@ namespace Nim.UI.Views
             {
                 Source = this
             };
+
+            if(this.DataContext is MainPageData mainPage)
+            {
+                mainPage.GameController.GameOver += (s, e) => CheckClick?.Invoke(Pages.GameOver);
+            }
 
             EndBtn.SetBinding(Button.IsEnabledProperty, binding);
         }
