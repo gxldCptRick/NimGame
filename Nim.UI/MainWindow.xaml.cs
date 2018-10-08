@@ -36,7 +36,13 @@ namespace Nim.UI
         }
         private void Main_Click(object sender, RoutedEventArgs e)
         {
-            ChangePage(Pages.MainMenu);
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.CheckClick += value =>
+            {
+                ChangePage(value);
+            };
+            mainMenu.DataContext = this.DataContext;
+            this.frameToHoldThePages.Navigate(mainMenu);
         }
 
         private void Difficulty_Click(object sender, RoutedEventArgs e)
@@ -51,7 +57,10 @@ namespace Nim.UI
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ChangePage(Pages.Difficulty);
+            // Change to MainMenu after testing is done.
+            var page = new GamePage();
+            page.DataContext = this.DataContext;
+            this.frameToHoldThePages.Navigate(page);
         }
 
         private void ChangePage(Pages options)
