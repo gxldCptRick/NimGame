@@ -55,6 +55,7 @@ namespace Nim.UI.Views
                 gd = GameDifficulty.Hard;
             }
             dc.GameController.Difficulty = gd;
+
             if (CheckClick != null) CheckClick(Pages.Game);
         }
 
