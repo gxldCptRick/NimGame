@@ -3,6 +3,7 @@ using Nim.Lib.Models;
 using Nim.UI.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Nim.UI.Controllers
 {
@@ -24,7 +25,7 @@ namespace Nim.UI.Controllers
         /// <summary>
         /// this is a list of data represention of the piles in the nim game.
         /// </summary>
-        public List<PileData> Piles
+        public ObservableCollection<PileData> Piles
         {
             get => _piles; set
             {
@@ -78,7 +79,7 @@ namespace Nim.UI.Controllers
         /// the current Game of Nim being played
         /// </summary>
         private NimGame game;
-        private List<PileData> _piles;
+        private ObservableCollection<PileData> _piles;
         private PlayerTurn _currentTurn;
         private GameType _type;
         private GameDifficulty _difficulty;
@@ -88,7 +89,7 @@ namespace Nim.UI.Controllers
         /// </summary>
         public NimController()
         {
-            Piles = new List<PileData>();
+            Piles = new ObservableCollection<PileData>();
             Difficulty = GameDifficulty.Easy;
             Type = GameType.OnePlayer;
             ResetGame();
@@ -122,6 +123,7 @@ namespace Nim.UI.Controllers
             {
                 game.TakeFromPile(pile.PileID, pile.AmountTaken);
             }
+
             ResetPiles();
             if (Type == GameType.OnePlayer)
             {
@@ -132,6 +134,8 @@ namespace Nim.UI.Controllers
             {
                 SwitchTurn();
             }
+
+            ResetPiles();
         }
 
         /// <summary>
@@ -145,7 +149,7 @@ namespace Nim.UI.Controllers
             {
                 var pileSelecting = pileNames[rnJesus.Next(0, pileNames.Length)];
                 var amountInPile = game.GetPileSize(pileSelecting);
-                isValidMove = amountInPile == 0;
+                isValidMove = amountInPile != 0;
                 if (isValidMove)
                 {
                     var amountTaking = rnJesus.Next(1, amountInPile + 1);
@@ -176,6 +180,7 @@ namespace Nim.UI.Controllers
                 {
                     pile.AmountTaken = 0;
                     pile.AmountLeft = game.GetPileSize(pile.PileID);
+                    pile.IsEnabled = true;
                 }
             }
 
