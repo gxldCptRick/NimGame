@@ -1,4 +1,6 @@
-﻿namespace Nim.UI.ViewModels
+﻿using System;
+
+namespace Nim.UI.ViewModels
 {
     public class PileData : ViewModelBase
     {
@@ -41,6 +43,14 @@
                 PropertyChanging();
             }
         }
+
+        public event Action ActionDid;
+
+        internal void Invoke()
+        {
+            ActionDid?.Invoke();
+        }
+
         /// <summary>
         /// amount to be taken on next update.
         /// </summary>
