@@ -12,7 +12,7 @@ namespace Nim.UI.Controllers
         /// <summary>
         /// the random number generator to be used when calculating the boss moves. 
         /// </summary>
-        private static readonly Random rnJesus;
+        public static readonly Random rnJesus;
 
         /// <summary>
         /// this creates the intial random instance for the static rnJesus Random variable.

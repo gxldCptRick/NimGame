@@ -1,4 +1,6 @@
-﻿using Nim.UI.ViewModels;
+﻿using Nim.Lib.Enums;
+using Nim.UI.Controllers;
+using Nim.UI.ViewModels;
 using Nim.UI.Views.UserControls;
 using System;
 using System.Collections.Generic;
@@ -45,26 +47,49 @@ namespace Nim.UI.Views
             canUpdateGameArea = false;
         }
 
-        private void restartBtn_Click(object sender, RoutedEventArgs e)
+        private void RestartBtn_Click(object sender, RoutedEventArgs e)
         {
-            resetStuff();
-
-            MainPageData dc = (MainPageData)this.DataContext;
+            UnlockTheUI();
+            MainPageData dc = (MainPageData) this.DataContext;
             dc.GameController.ResetGame();
         }
 
-        private void endBtn_Click(object sender, RoutedEventArgs e)
+        private void EndBtn_Clicked(object sender, RoutedEventArgs e)
         {
-            resetStuff();
+            UnlockTheUI();
             MainPageData dc = (MainPageData)this.DataContext;
             dc.GameController.ProcessTurn();
+            HighlightTheCorrectPlayer();
         }
 
-        private void resetStuff()
+        private void UnlockTheUI()
         {
             gameArea.SelectedIndex = -1;
             gameArea.Focusable = true;
             canUpdateGameArea = true;
+        }
+
+        private void HighlightTheCorrectPlayer()
+        {
+            if (this.DataContext is MainPageData data)
+            {
+                if (data.GameController.CurrentTurn == PlayerTurn.PlayerOne)
+                {
+                    this.Player1.Background = Brushes.Plum;
+                    this.Player2.Background = Brushes.Transparent;
+                }
+                else
+                {
+
+                    this.Player1.Background = Brushes.Transparent;
+                    this.Player2.Background = Brushes.Plum;
+                }
+            }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            HighlightTheCorrectPlayer();
         }
     }
 }

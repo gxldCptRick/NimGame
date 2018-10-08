@@ -1,7 +1,9 @@
 ﻿using Nim.Enums;
 using Nim.Lib.Enums;
+using Nim.UI.Controllers;
 using Nim.UI.ViewModels;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,6 +14,10 @@ namespace Nim.UI.Views
     /// </summary>
     public partial class DifficultyPage : Page
     {
+        private static readonly string[] babyNames;
+        static DifficultyPage(){
+            babyNames = File.ReadAllLines("Resources/Names.txt");
+        }
         public event Action<Pages> CheckClick;
         public DifficultyPage()
         {
@@ -47,6 +53,8 @@ namespace Nim.UI.Views
                 gd = GameDifficulty.Hard;
             }
             dc.GameController.Difficulty = gd;
+
+            if (DataContext is MainPageData data && data.GameController.Type == GameType.OnePlayer) data.P2Name = babyNames[NimController.rnJesus.Next(0, babyNames.Length)];
 
             if (CheckClick != null) CheckClick(Pages.Game);
         }

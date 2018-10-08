@@ -7,7 +7,8 @@
       xmlns:userControls="clr-namespace:Nim.UI.Views.UserControls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="GamePage">
+      Title="GamePage"
+      Loaded="Page_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -19,9 +20,9 @@
             <RowDefinition Height=".1*"/>
         </Grid.RowDefinitions>
         <UniformGrid Rows="1">
-            <Label Foreground="Yellow"  Content="{Binding Path=P1Name}"/>
-            <Button Content="End Turn" Margin="10" Name="endBtn" Click="endBtn_Click"/>
-            <Label Foreground="Yellow" Content="{Binding Path=P2Name}"/>
+            <Label Foreground="Yellow"  Content="{Binding Path=P1Name}" Name="Player1"/>
+            <Button Content="End Turn" Margin="10" Name="EndBtn" Click="EndBtn_Clicked"/>
+            <Label Foreground="Yellow" Name="Player2" Content="{Binding Path=P2Name}"/>
         </UniformGrid>
         <ListView Grid.Row="1" Background="Transparent" Name="gameArea" DataContext="{Binding  Path=GameController}" 
                   ItemsSource="{Binding Path=Piles}" SelectionChanged="gameArea_SelectionChanged">
@@ -31,6 +32,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Margin="200, 10" Grid.Row="2" Content="Restart" Name="restartBtn" Click="restartBtn_Click"/>
+        <Button Margin="200, 10" Grid.Row="2" Content="Restart" Name="restartBtn" Click="RestartBtn_Click"/>
     </Grid>
 </Page>
