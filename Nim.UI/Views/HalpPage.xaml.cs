@@ -33,7 +33,8 @@ namespace Nim.UI.Views
 
         private void Devinfo_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show();
+            
+            MessageBox.Show();
         }
     }
 }

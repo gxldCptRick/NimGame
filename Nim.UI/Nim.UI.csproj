@@ -164,6 +164,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\DeveloperInfo.txt" />
     <Content Include="Resources\doughnut.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
