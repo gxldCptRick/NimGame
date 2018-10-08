@@ -12,6 +12,7 @@ namespace Nim.Enums
         Halp = 2,
         Settings = 3,
         Game = 4,
-        MainMenu = 5
+        MainMenu = 5,
+        GameOver = 6
     }
 }
