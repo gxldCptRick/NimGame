@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Nim.Enums;
+using Nim.UI.ViewModels;
 
 namespace Nim.UI.Views
 {
@@ -29,11 +30,15 @@ namespace Nim.UI.Views
 
         private void SinglePlayerClick(object sender, RoutedEventArgs e)
         {
+            MainPageData dc = (MainPageData)this.DataContext;
+            dc.GameController.Type = Lib.Enums.GameType.OnePlayer;
             CheckClick(Pages.Difficulty);
         }
 
         private void TwoPlayerClick(object sender, RoutedEventArgs e)
         {
+            MainPageData dc = (MainPageData)this.DataContext;
+            dc.GameController.Type = Lib.Enums.GameType.TwoPlayer;
             CheckClick(Pages.Difficulty);
         }
 
