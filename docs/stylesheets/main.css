@@ -37,6 +37,10 @@ title {
   background: rgba(192, 255, 238, 0.2);
 }
 
+.description > p {
+  display: block;
+}
+
 .download-link {
   background: rgba(153, 170, 51, 0.7);
   padding: 0.1em;
@@ -48,7 +52,7 @@ title {
 h3 {
   font-size: 2em;
   width: 24%;
-  margin: 10% 38%;
+  margin: 0% 38%;
 }
 
 .download-link:hover {
